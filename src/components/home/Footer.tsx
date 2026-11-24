@@ -5,12 +5,26 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Eye, EyeOff, Mail, MapPin, Phone } from "lucide-react";
 import { useI18n } from "@/i18n/LanguageProvider";
 import { club } from "@/content/club";
-import { Crest, Ph, socialIcons } from "@/components/ui";
+import { asset, Crest, Ph, socialIcons } from "@/components/ui";
 import { LanguageSwitch } from "./Header";
 import { routes } from "@/features/fees/ui";
 
+const BADGES = [
+  { id: "ethics", src: "/brand/bandeira-etica.png", href: "https://pned.ipdj.gov.pt/" },
+  { id: "ipdj", src: "/brand/ipdj.png", href: "https://ipdj.gov.pt/" },
+  { id: "jf", src: "/brand/jf-quarteira.png", href: "https://jf-quarteira.pt/" },
+  { id: "fpf", src: "/brand/fpf-entidade-formadora.png", href: "https://www.fpf.pt/" },
+] as const;
+
+const RECOGNITION = {
+  pt: { title: "Distinções, certificações e entidades", ethics: "Bandeira da Ética, Plano Nacional de Ética no Desporto", ipdj: "Instituto Português do Desporto e Juventude", jf: "Junta de Freguesia de Quarteira", fpf: "Entidade Formadora Certificada pela FPF, 4 estrelas" },
+  en: { title: "Awards, certifications and institutions", ethics: "Ethics Flag, National Plan for Ethics in Sport", ipdj: "Portuguese Institute of Sport and Youth", jf: "Quarteira Parish Council", fpf: "FPF Certified Training Entity, 4 stars" },
+  fr: { title: "Distinctions, certifications et institutions", ethics: "Drapeau de l'éthique, Plan national d'éthique dans le sport", ipdj: "Institut portugais du sport et de la jeunesse", jf: "Junta de Freguesia de Quarteira (mairie de quartier)", fpf: "Centre de formation certifié par la FPF, 4 étoiles" },
+} as const;
+
 export function Footer() {
-  const { t } = useI18n();
+  const { t, locale } = useI18n();
+  const rec = RECOGNITION[locale as keyof typeof RECOGNITION] ?? RECOGNITION.pt;
   const cols = [
     {
       title: t.footer.club,
@@ -107,6 +121,27 @@ export function Footer() {
               </ul>
             </nav>
           ))}
+        </div>
+      </div>
+
+      <div className="border-t border-white/10">
+        <div className="container-site py-8">
+          <p className="eyebrow text-haze">{rec.title}</p>
+          <ul className="mt-4 flex flex-wrap items-stretch gap-3">
+            {BADGES.map((bd) => (
+              <li key={bd.id}>
+                <a
+                  href={bd.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  title={rec[bd.id]}
+                  className="flex h-24 items-center rounded-2xl bg-white px-4 py-2 transition-transform hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:h-28"
+                >
+                  <img src={asset(bd.src)} alt={rec[bd.id]} className="h-full w-auto" loading="lazy" />
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
 
