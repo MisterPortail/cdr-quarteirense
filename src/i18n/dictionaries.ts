@@ -27,6 +27,10 @@ const pt = {
   topbar: {
     follow: "Segue o clube",
     memberArea: "Área de Sócio",
+    parents: "Espaço Pais",
+    parentsShort: "Pais",
+    admin: "Gestão do clube",
+    adminShort: "Gestão",
     becomeMember: "Torna-te Sócio",
     language: "Idioma",
   },
@@ -308,6 +312,10 @@ const en: Dict = {
   topbar: {
     follow: "Follow the club",
     memberArea: "Member Area",
+    parents: "Parents' area",
+    parentsShort: "Parents",
+    admin: "Club admin",
+    adminShort: "Admin",
     becomeMember: "Become a Member",
     language: "Language",
   },
@@ -571,6 +579,10 @@ const fr: Dict = {
   topbar: {
     follow: "Suivez le club",
     memberArea: "Espace membre",
+    parents: "Espace parents",
+    parentsShort: "Parents",
+    admin: "Gestion du club",
+    adminShort: "Gestion",
     becomeMember: "Devenir Sócio",
     language: "Langue",
   },

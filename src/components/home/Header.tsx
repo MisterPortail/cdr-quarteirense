@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { ChevronDown, Menu, UserRound, X } from "lucide-react";
+import { ChevronDown, LockKeyhole, Menu, Users, X } from "lucide-react";
 import { useI18n } from "@/i18n/LanguageProvider";
 import { locales, type Locale } from "@/i18n/dictionaries";
 import { club } from "@/content/club";
@@ -84,15 +84,24 @@ export function Header() {
       <div className="relative z-50 bg-night text-white">
         <div className="container-site flex h-10 items-center justify-between gap-4 text-xs">
           <div className="flex items-center gap-3">
-            <span className="hidden text-haze sm:inline">{t.topbar.follow}</span>
-            <SocialLinks />
+            <span className="hidden text-haze lg:inline">{t.topbar.follow}</span>
+            <span className="hidden md:contents">
+              <SocialLinks />
+            </span>
           </div>
           <div className="flex items-center gap-2 sm:gap-4">
-            <LanguageSwitch compact />
-            <a href={routes.portal} className="hidden items-center gap-1.5 text-haze transition-colors hover:text-white md:inline-flex">
-              <UserRound className="size-3.5" /> {t.topbar.memberArea}
+            <span className="hidden md:block">
+              <LanguageSwitch compact />
+            </span>
+            <a href={routes.portal} className="inline-flex items-center gap-1.5 rounded-full bg-white px-3 py-1.5 font-semibold text-night transition-colors hover:bg-foam">
+              <Users className="size-3.5 text-royal" /> <span className="sm:hidden">{t.topbar.parentsShort}</span>
+              <span className="hidden sm:inline">{t.topbar.parents}</span>
             </a>
-            <a href="#socios" className="hidden rounded-full bg-signal px-3.5 py-1.5 font-semibold text-white transition-colors hover:bg-signal-deep sm:inline-block">
+            <a href={routes.admin} className="inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 font-semibold text-white ring-1 ring-white/30 transition-colors hover:bg-white/10">
+              <LockKeyhole className="size-3.5" /> <span className="sm:hidden">{t.topbar.adminShort}</span>
+              <span className="hidden sm:inline">{t.topbar.admin}</span>
+            </a>
+            <a href="#socios" className="hidden rounded-full bg-signal px-3.5 py-1.5 font-semibold text-white transition-colors hover:bg-signal-deep lg:inline-block">
               {t.topbar.becomeMember}
             </a>
           </div>
@@ -118,7 +127,7 @@ export function Header() {
             <ul className="flex items-center gap-1">
               {nav.slice(0, 4).map((n) => (
                 <li key={n.label}>
-                  <a href={n.href} className="relative rounded-full px-3 py-2 text-[0.82rem] font-medium text-white/85 transition-colors hover:text-white">
+                  <a href={n.href} className="relative whitespace-nowrap rounded-full px-3 py-2 text-[0.82rem] font-medium text-white/85 transition-colors hover:text-white">
                     {n.label}
                   </a>
                 </li>
@@ -141,7 +150,7 @@ export function Header() {
               </li>
               {nav.slice(4).map((n) => (
                 <li key={n.label}>
-                  <a href={n.href} className="rounded-full px-3 py-2 text-[0.82rem] font-medium text-white/85 transition-colors hover:text-white">
+                  <a href={n.href} className="whitespace-nowrap rounded-full px-3 py-2 text-[0.82rem] font-medium text-white/85 transition-colors hover:text-white">
                     {n.label}
                   </a>
                 </li>
@@ -150,6 +159,12 @@ export function Header() {
           </nav>
 
           <div className="flex items-center gap-2">
+            <a
+              href={routes.portal}
+              className={`hidden items-center gap-1.5 rounded-full bg-white px-4 py-2.5 text-sm font-semibold text-night transition-all hover:bg-foam md:inline-flex xl:hidden ${scrolled ? "2xl:inline-flex" : ""}`}
+            >
+              <Users className="size-4 text-royal" /> {t.topbar.parents}
+            </a>
             <a href="#parceiros" className="hidden text-[0.82rem] font-medium text-white/85 hover:text-white 2xl:inline">
               {t.nav.partners}
             </a>
@@ -210,8 +225,11 @@ export function Header() {
                 <a href="#socios" onClick={() => setOpen(false)} className="rounded-full bg-signal px-6 py-3 font-semibold">
                   {t.topbar.becomeMember}
                 </a>
-                <a href={routes.portal} onClick={() => setOpen(false)} className="inline-flex items-center gap-2 text-haze">
-                  <UserRound className="size-4" /> {t.topbar.memberArea}
+                <a href={routes.portal} onClick={() => setOpen(false)} className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-3 font-semibold text-night">
+                  <Users className="size-4 text-royal" /> {t.topbar.parents}
+                </a>
+                <a href={routes.admin} onClick={() => setOpen(false)} className="inline-flex items-center gap-2 rounded-full px-5 py-3 font-semibold ring-1 ring-white/30">
+                  <LockKeyhole className="size-4" /> {t.topbar.admin}
                 </a>
               </div>
               <div className="mt-8 flex items-center justify-between">
