@@ -14,6 +14,7 @@ export const routes = {
   home: HASH ? "#inicio" : "/",
   portal: HASH ? "#area-pais" : "/area-pais",
   admin: HASH ? "#gestao" : "/gestao",
+  matches: HASH ? "#jogos-resultados" : "/jogos",
 };
 
 export const monthLabel = (i: number, locale: string, style: "short" | "long" = "short") =>

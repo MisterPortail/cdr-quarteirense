@@ -31,7 +31,7 @@ export function Footer() {
       links: [
         [t.nav.club, "#clube"],
         [t.nav.news, "#noticias"],
-        [t.nav.matches, "#jogos"],
+        [t.nav.matches, routes.matches],
         [t.nav.partners, "#parceiros"],
         [t.nav.shop, "#loja"],
         [t.topbar.memberArea, routes.portal],

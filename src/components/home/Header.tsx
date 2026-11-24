@@ -71,7 +71,7 @@ export function Header() {
     { href: "#equipas", label: t.nav.football },
     { href: "#equipas", label: t.nav.futsal },
     { href: "#formacao", label: t.nav.academy },
-    { href: "#jogos", label: t.nav.matches },
+    { href: routes.matches, label: t.nav.matches },
     { href: "#noticias", label: t.nav.news },
     { href: "#socios", label: t.nav.members },
     { href: "#loja", label: t.nav.shop },
