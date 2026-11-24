@@ -1,0 +1,30 @@
+{
+  "name": "cdr-quarteirense-site",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Site oficial do CDR Quarteirense — V1 página inicial",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "tsc --noEmit",
+    "preview:build": "node scripts/build-preview.mjs"
+  },
+  "dependencies": {
+    "framer-motion": "14.14.0",
+    "lucide-react": "^0.460.0",
+    "next": "16.4.6",
+    "react": "19.3.1",
+    "react-dom": "19.3.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "4.3.5",
+    "@tailwindcss/postcss": "4.3.5",
+    "@types/node": "^22",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "esbuild": "0.28.2",
+    "tailwindcss": "4.3.5",
+    "typescript": "~5.9.3"
+  }
+}
