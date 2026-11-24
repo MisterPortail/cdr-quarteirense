@@ -212,7 +212,7 @@ function Season({ team, now }: { team: Team; now: Date }) {
   );
 }
 
-function Table({ team }: { team: Team }) {
+export function Table({ team }: { team: Team }) {
   const { locale } = useI18n();
   const m = matchesDictionaries[locale];
   const tb = team.table;

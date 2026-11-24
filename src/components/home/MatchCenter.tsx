@@ -9,6 +9,7 @@ import { matchesDictionaries } from "@/i18n/matches";
 import { teams, SCAN_DATE } from "@/content/fixtures";
 import { icsFor, mapsUrl, nextFixture, pastFixtures } from "@/content/fixtures-model";
 import { routes } from "@/features/fees/ui";
+import { Table } from "@/components/matches/MatchesPage";
 
 /**
  * Match Center da página inicial — DADOS REAIS (src/content/fixtures.ts),
@@ -111,7 +112,7 @@ export function MatchCenter() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -12 }}
               transition={{ duration: 0.35 }}
-              className="mt-6 grid gap-4 lg:grid-cols-[0.85fr_1.15fr]"
+              className="mt-6 grid grid-cols-[minmax(0,1fr)] gap-4 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)]"
             >
               {/* Último jogo */}
               <div className="flex flex-col rounded-3xl bg-white p-6 ring-1 ring-line md:p-8">
@@ -211,6 +212,11 @@ export function MatchCenter() {
                 ) : (
                   <p className="relative mt-6 text-white/80">{m.noNext}</p>
                 )}
+              </div>
+
+              {/* Classificação */}
+              <div className="lg:col-span-2">
+                <Table team={team} />
               </div>
             </motion.div>
           </AnimatePresence>
