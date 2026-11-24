@@ -9,6 +9,7 @@ const instrument = Instrument_Sans({ subsets: ["latin"], variable: "--font-instr
 const mono = JetBrains_Mono({ subsets: ["latin"], variable: "--font-jetbrains", display: "swap" });
 
 export const metadata: Metadata = {
+  other: { google: "notranslate" },
   metadataBase: new URL("https://www.cdrquarteirense.com"),
   title: { default: "CDR Quarteirense · Site oficial", template: "%s · CDR Quarteirense" },
   description:
@@ -45,7 +46,7 @@ const jsonLd = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="pt-PT" className={`${archivo.variable} ${instrument.variable} ${mono.variable}`}>
+    <html lang="pt-PT" translate="no" className={`${archivo.variable} ${instrument.variable} ${mono.variable}`}>
       <body>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
         <LanguageProvider>{children}</LanguageProvider>

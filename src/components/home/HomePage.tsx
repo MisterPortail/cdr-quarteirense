@@ -11,6 +11,7 @@ import { TrophyRoom } from "./TrophyRoom";
 import { Membership, Partners, Shop } from "./Membership";
 import { Footer, ReviewToggle } from "./Footer";
 import { Intro } from "./Intro";
+import { useI18n } from "@/i18n/LanguageProvider";
 
 /**
  * Página inicial — ordem das secções pensada para os vários públicos:
@@ -18,11 +19,12 @@ import { Intro } from "./Intro";
  * (história) → envolvimento (sócios, loja) → empresas (parceiros).
  */
 export function HomePage({ heroImage }: { heroImage?: string }) {
+  const { locale } = useI18n();
   return (
     <>
       <Intro />
       <a href="#conteudo" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-white focus:px-4 focus:py-2 focus:text-ink">
-        Saltar para o conteúdo
+        {locale === "en" ? "Skip to content" : locale === "fr" ? "Aller au contenu" : "Saltar para o conteúdo"}
       </a>
       <Header />
       <main id="conteudo">

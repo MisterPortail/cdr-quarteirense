@@ -35,6 +35,7 @@ export function LanguageProvider({ children, initialLocale = defaultLocale }: { 
 
   useEffect(() => {
     document.documentElement.lang = locale === "pt" ? "pt-PT" : locale;
+    document.documentElement.setAttribute("translate", "no"); // o site já é traduzido: evita a tradução automática do navegador
     document.title = dictionaries[locale].meta.title;
   }, [locale]);
 
