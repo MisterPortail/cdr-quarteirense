@@ -10,6 +10,7 @@ import { History } from "./History";
 import { TrophyRoom } from "./TrophyRoom";
 import { Membership, Partners, Shop } from "./Membership";
 import { Footer, ReviewToggle } from "./Footer";
+import { Intro } from "./Intro";
 
 /**
  * Página inicial — ordem das secções pensada para os vários públicos:
@@ -19,6 +20,7 @@ import { Footer, ReviewToggle } from "./Footer";
 export function HomePage({ heroImage }: { heroImage?: string }) {
   return (
     <>
+      <Intro />
       <a href="#conteudo" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-white focus:px-4 focus:py-2 focus:text-ink">
         Saltar para o conteúdo
       </a>

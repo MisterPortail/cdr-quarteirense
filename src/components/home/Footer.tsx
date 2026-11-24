@@ -17,9 +17,9 @@ const BADGES = [
 ] as const;
 
 const RECOGNITION = {
-  pt: { title: "Distinções, certificações e entidades", ethics: "Bandeira da Ética, Plano Nacional de Ética no Desporto", ipdj: "Instituto Português do Desporto e Juventude", jf: "Junta de Freguesia de Quarteira", fpf: "Entidade Formadora Certificada pela FPF, 4 estrelas" },
-  en: { title: "Awards, certifications and institutions", ethics: "Ethics Flag, National Plan for Ethics in Sport", ipdj: "Portuguese Institute of Sport and Youth", jf: "Quarteira Parish Council", fpf: "FPF Certified Training Entity, 4 stars" },
-  fr: { title: "Distinctions, certifications et institutions", ethics: "Drapeau de l'éthique, Plan national d'éthique dans le sport", ipdj: "Institut portugais du sport et de la jeunesse", jf: "Junta de Freguesia de Quarteira (mairie de quartier)", fpf: "Centre de formation certifié par la FPF, 4 étoiles" },
+  pt: { title: "Distinções, certificações e entidades", replay: "Rever a intro", ethics: "Bandeira da Ética, Plano Nacional de Ética no Desporto", ipdj: "Instituto Português do Desporto e Juventude", jf: "Junta de Freguesia de Quarteira", fpf: "Entidade Formadora Certificada pela FPF, 4 estrelas" },
+  en: { title: "Awards, certifications and institutions", replay: "Replay intro", ethics: "Ethics Flag, National Plan for Ethics in Sport", ipdj: "Portuguese Institute of Sport and Youth", jf: "Quarteira Parish Council", fpf: "FPF Certified Training Entity, 4 stars" },
+  fr: { title: "Distinctions, certifications et institutions", replay: "Revoir l'intro", ethics: "Drapeau de l'éthique, Plan national d'éthique dans le sport", ipdj: "Institut portugais du sport et de la jeunesse", jf: "Junta de Freguesia de Quarteira (mairie de quartier)", fpf: "Centre de formation certifié par la FPF, 4 étoiles" },
 } as const;
 
 export function Footer() {
@@ -158,6 +158,9 @@ export function Footer() {
                 </a>
               </Ph>
             ))}
+            <button type="button" onClick={() => window.dispatchEvent(new Event("cdr:intro"))} className="hover:text-white">
+              {rec.replay}
+            </button>
             <LanguageSwitch compact />
           </div>
         </div>
